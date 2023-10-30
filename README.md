@@ -7,5 +7,3 @@ docker-compose up -d
 ```
 
 2. Access http://localhost:8787
-
-3. Enter ```rstudio``` for user name and ```password``` for password when logging in 

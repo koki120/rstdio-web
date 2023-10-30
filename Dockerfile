@@ -1,5 +1,5 @@
 # ベースとするイメージ（任意のrocker/*に変更可能です）
-FROM rocker/tidyverse:latest
+FROM rocker/rstudio:latest
 
 # OS環境（rockerはdebianベース）に日本語ロケールを追加し切り替えます
 ENV LANG ja_JP.UTF-8
@@ -15,3 +15,9 @@ RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 RUN apt-get update && apt-get install -y \
   fonts-ipaexfont \
   fonts-noto-cjk
+
+
+RUN mkdir -p /home/rstudio/workspace
+RUN mkdir -p /home/rstudio/.config/rstudio
+RUN chown -R rstudio:rstudio /home/rstudio/workspace
+RUN chown -R rstudio:rstudio /home/rstudio/.config/rstudio

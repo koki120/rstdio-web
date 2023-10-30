@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  rstudio:
+    build: .
+    ports:
+      - "8787:8787"
+    environment:
+      PASSWORD: password
+      ROOT: "true"
+    volumes:
+      - rstudio_data:/home/rstudio/workspace
+      - ./.rstudio_config:/home/rstudio/.config/rstudio
+
+volumes:
+  rstudio_data:
